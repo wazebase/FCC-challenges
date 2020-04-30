@@ -1,0 +1,11 @@
+function steamrollArray(arr) {
+  let newStr = arr.join().replace(/,/g,"").replace("[object Object]","{}");
+  console.log(newStr)
+   let newArr= newStr.split("").map(x => typeof parseInt(x) =="number" && /\d/.test(x) ==true? x = parseInt(x):x
+);
+
+return newArr.map((x,i)=> x == "{"? newArr[i] ={}:x).filter(x=> x !="}");
+ 
+}
+
+console.log(steamrollArray([{}, [2], [3, [[4]]]]));
